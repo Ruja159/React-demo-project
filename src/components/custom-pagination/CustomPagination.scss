@@ -1,0 +1,15 @@
+.paginationBttns {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: center;
+    gap: 50px;
+}
+
+.selected {
+    display: none;
+}

@@ -1,0 +1,10 @@
+.teacher-detail-container {
+    min-height: 100vh;
+    padding: 0 20px;
+
+    .input-container {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+}

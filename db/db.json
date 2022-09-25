@@ -1,0 +1,138 @@
+{
+    "nastavnici": [
+        {   "id": 1,
+            "ime": "Aleksandar",
+            "prezime": "Rujeic",
+            "srednje_ime" : "Ruja",
+            "skracenica" : "RUJA",
+            "boja": "#ff0000",
+            "predmeti": ["MAT", "GEO", "SRB"],
+            "nedostupan_termin": ["18.9.2020"],
+            "dostupan_termin": [
+                "18.20.2222" ,"19.29.2222"
+            ]
+        },
+
+        {
+            "id": 2,
+            "ime": "Aleksandar",
+            "prezime": "Rujeic",
+            "srednje_ime" : "Ruja",
+            "skracenica" : "",
+            "boja": "#ff0000",
+            "nedostupan_termin": "",
+            "dostupan_termin": ""
+        },
+        {
+            "id": 3,
+            "ime": "Aleksandar",
+            "prezime": "Rujeic",
+            "srednje_ime" : "Ruja",
+            "skracenica" : "",
+            "boja": "#ff0000",
+            "nedostupan_termin": "",
+            "dostupan_termin": ""
+        },
+        {
+            "id": 4,
+            "ime": "Aleksandar",
+            "prezime": "Rujeic",
+            "srednje_ime" : "Ruja",
+            "skracenica" : "",
+            "boja": "#ff0000",
+            "nedostupan_termin": "",
+            "dostupan_termin": ""
+        },
+        {
+            "id": 5,
+            "ime": "Aleksandar",
+            "prezime": "Rujeic",
+            "srednje_ime" : "Ruja",
+            "skracenica" : "",
+            "boja": "#ff0000",
+            "nedostupan_termin": "",
+            "dostupan_termin": ""
+        },
+        {
+            "id": 6,
+            "ime": "Aleksandar",
+            "prezime": "Rujeic",
+            "srednje_ime" : "Ruja",
+            "skracenica" : "",
+            "boja": "#ff0000",
+            "nedostupan_termin": "",
+            "dostupan_termin": ""
+        }
+        , {
+            "id":72,
+            "ime": "Aleksandar",
+            "prezime": "Rujeic",
+            "srednje_ime" : "Ruja",
+            "skracenica" : "",
+            "boja": "#ff0000",
+            "nedostupan_termin": "",
+            "dostupan_termin": ""
+        }
+        , {
+            "id": 8,
+            "ime": "Aleksandar",
+            "prezime": "Rujeic",
+            "srednje_ime" : "Ruja",
+            "skracenica" : "",
+            "boja": "#ff0000",
+            "nedostupan_termin": "",
+            "dostupan_termin": ""
+        }
+        , {
+            "id": 9,
+            "ime": "Aleksandar",
+            "prezime": "Rujeic",
+            "srednje_ime" : "Ruja",
+            "skracenica" : "",
+            "boja": "#ff0000",
+            "nedostupan_termin": "",
+            "dostupan_termin": ""
+        }
+        , {
+            "id": 10,
+            "ime": "Aleksandar",
+            "prezime": "Rujeic",
+            "srednje_ime" : "Ruja",
+            "skracenica" : "",
+            "boja": "#ff0000",
+            "nedostupan_termin": "",
+            "dostupan_termin": ""
+        }
+        , {
+            "id": 11,
+            "ime": "Aleksandar",
+            "prezime": "Rujeic",
+            "srednje_ime" : "Ruja",
+            "skracenica" : "",
+            "boja": "#ff0000",
+            "nedostupan_termin": "",
+            "dostupan_termin": ""
+        }
+        , {
+            "id": 12,
+            "ime": "Aleksandar",
+            "prezime": "Rujeic",
+            "srednje_ime" : "Ruja",
+            "skracenica" : "",
+            "boja": "#ff0000",
+            "nedostupan_termin": "",
+            "dostupan_termin": ""
+        }
+        , {
+            "id": 13,
+            "ime": "Aleksandar",
+            "prezime": "Rujeic",
+            "srednje_ime" : "Ruja",
+            "skracenica" : "",
+            "boja": "#ff0000",
+            "nedostupan_termin": "",
+            "dostupan_termin": ""
+        }
+
+    ]
+}

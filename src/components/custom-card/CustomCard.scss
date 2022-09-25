@@ -1,0 +1,135 @@
+.custom-card-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  box-shadow: 0px 0px 7px -3px black;
+  background-color: white;
+  border-radius: 10px;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 0 20px;
+}
+
+.custom-card-numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.custom-card-teacher-informations {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-between;
+  border-left: 3px solid;
+  border-radius: 3px;
+  height: 80%;
+  align-items: center;
+  background-color: $background-color;
+}
+
+.teacher-info-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.teacher-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 25%;
+  border-right: 1px solid $border-color;
+  padding: 0 10px;
+  height: 100%;
+  justify-content: center;
+}
+.teacher-info:last-child {
+  border: none;
+}
+
+.custom-card-subjects {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  background-color: $background-color;
+  min-width: 12%;
+  padding: 0 10px;
+  justify-content: center;
+  position: relative;
+  align-items: flex-start;
+
+  .custom-card-subjects-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .number-of-subjects {
+    font-size: 11px;
+    position: absolute;
+    top: 3px;
+    right: 9px;
+    color: $label-color;
+  }
+}
+
+.custom-card-terms {
+  height: 80%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-color: $background-color;
+  padding: 0 10px;
+  border-radius: 3px;
+
+  .custom-card-terms-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex: 1;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+
+    .custom-card-terms-positive-number {
+      border-radius: 50%;
+      background-color: $positive-term-number-color;
+      width: 17px;
+      height: 17px;
+      color: white;
+      font-size: 12px;
+    }
+
+    .custom-card-terms-negative-number {
+      border-radius: 50%;
+      background-color: $negative-term-number-color;
+      width: 17px;
+      height: 17px;
+      color: white;
+      font-size: 12px;
+    }
+  }
+}
+
+.edit-button {
+  background-color: white;
+  border: none;
+  color: #7d7d7d;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: white;
+  border: none;
+  color: #ff657a;
+  font-size: 20px;
+  cursor: pointer;
+}
