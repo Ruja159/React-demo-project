@@ -58,7 +58,7 @@
   flex-direction: column;
   border-radius: 3px;
   background-color: $background-color;
-  min-width: 24%;
+  min-width: 282px;
   padding: 0 10px;
   justify-content: center;
   position: relative;
@@ -136,11 +136,13 @@
 
 .subject-names {
   font-size: 14px;
+  margin: 0;
+  padding: 5px 0;
 }
 
 .subject-names-container-baseline {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }
 
 .subject-span {

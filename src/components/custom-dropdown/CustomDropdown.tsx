@@ -2,6 +2,7 @@ import { Button, Checkbox } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { getPredmeti } from "../../services/subject-service/SubjectService";
 import CustomInput from "../custom-input/CustomInput";
+import { AiOutlinePlus } from "react-icons/ai";
 
 export interface Predmeti {
   id: number;
@@ -31,7 +32,6 @@ function CustomDropdown({setPredmeti}: any) {
     index: number,
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    console.log(event, "EVEN");
     const newList = [...listaPredmeta];
 
     if (index === -1) {
@@ -46,13 +46,7 @@ function CustomDropdown({setPredmeti}: any) {
 
   return (
     <div style={{ position: "relative" }}>
-      <button
-        onClick={() => {
-          handleClick();
-        }}
-      >
-        JEBO TE KRU
-      </button>
+      <Button variant="outlined" startIcon={<AiOutlinePlus />} size='small' className = "button" onClick={() => {handleClick()}}>Dodijeli predmet</Button>
       <div className="subject-container" style={{ display: !isOpen ? "none" : "" }}>
         <div>
           <div className="subject-container-search">
