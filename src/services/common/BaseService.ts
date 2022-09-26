@@ -21,9 +21,9 @@ class HttpClient {
     return service.get(tempURL, config);
   }
 
-  async delete(tempURL: string, config: object) {
+  async delete(tempURL: string, id: number) {
     const { service } = this;
-    return service.delete(tempURL, config);
+    return service.delete(tempURL + `/${id}`);
   }
 
   async head(tempURL: string, config: object) {

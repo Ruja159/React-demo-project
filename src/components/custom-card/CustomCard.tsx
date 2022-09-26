@@ -1,21 +1,22 @@
 import React from "react";
 import { HiPencilAlt } from "react-icons/hi";
 import { HiTrash } from "react-icons/hi";
+import { deleteTeacher } from "../../services/card-service/CardService";
 
-
-const CustomCard = ({ teacher }: any) => {
-
+const CustomCard = ({ teacher, index }: any) => {
   const handleDeleteTeacher = (id: number) => {
-    console.log(id, "EVENT")
+    deleteTeacher(id).then((result) => {
+      console.log(result, "OBRISANI REKORD");
+    });
   };
 
   const handleEditTeacher = (id: number) => {
-    console.log(id, "RADI")
-  }
-
+    console.log(id, "RADI");
+  };
+  console.log(teacher.predmeti, "UCIELJ");
   return (
     <div className="custom-card-container">
-      <div className="custom-card-numbers">{teacher.id}.</div>
+      <div className="custom-card-numbers">{index}.</div>
       <div
         className="custom-card-teacher-informations"
         style={{ borderColor: teacher.boja }}
@@ -34,7 +35,9 @@ const CustomCard = ({ teacher }: any) => {
         </div>
         <div className="teacher-info">
           <label>Skracenica:</label>
-          <h5>{teacher.skracenica ? teacher.skracenica : "-"}</h5>
+          <h5 style={{ textTransform: "uppercase" }}>
+            {teacher.skracenica ? teacher.skracenica : "-"}
+          </h5>
         </div>
       </div>
       <div className="custom-card-subjects">
@@ -44,7 +47,22 @@ const CustomCard = ({ teacher }: any) => {
             {teacher.predmeti ? teacher.predmeti.length : "0"}
           </div>
         </div>
-        <h5>{teacher.predmeti ? teacher.predmeti : "-"}</h5>
+        <div className="subject-names-container-baseline">
+              {teacher.predmeti ? teacher.predmeti.map((i: any, index: number) => {
+                   if(index < 4){
+                    return (
+                      <h5 className="subject-names">{`${i.ime},`}</h5>
+                    )
+                   }
+                   if(index == 4){
+                    return (<h5 className="subject-names">{i.ime}</h5>)
+                   }
+                   if(index > 4 ){
+                    return <span className="subject-span">+{teacher.predmeti.length - 5}</span>
+                   }
+                
+              })  : <h5>-</h5>}
+        </div>
       </div>
       <div className="custom-card-terms">
         <div className="custom-card-terms-container">
@@ -61,12 +79,20 @@ const CustomCard = ({ teacher }: any) => {
         </div>
       </div>
       <div className="custom-card-edit-teacher">
-        <button className="edit-button" onClick={() => {handleEditTeacher(teacher.id)}}>
+        <button
+          className="edit-button"
+          onClick={() => {
+            handleEditTeacher(teacher.id);
+          }}
+        >
           <i>{<HiPencilAlt />}</i>
         </button>
       </div>
       <div className="custom-card-delete">
-        <button className="delete-button" onClick={() => handleDeleteTeacher(teacher.id)}>
+        <button
+          className="delete-button"
+          onClick={() => handleDeleteTeacher(teacher.id)}
+        >
           <i>{<HiTrash />}</i>
         </button>
       </div>

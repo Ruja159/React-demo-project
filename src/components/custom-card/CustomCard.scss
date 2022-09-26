@@ -17,6 +17,7 @@
   align-items: center;
   justify-content: center;
   font-size: 28px;
+  max-width: 20px;
 }
 
 .custom-card-teacher-informations {
@@ -45,7 +46,6 @@
   width: 25%;
   border-right: 1px solid $border-color;
   padding: 0 10px;
-  height: 100%;
   justify-content: center;
 }
 .teacher-info:last-child {
@@ -58,7 +58,7 @@
   flex-direction: column;
   border-radius: 3px;
   background-color: $background-color;
-  min-width: 12%;
+  min-width: 24%;
   padding: 0 10px;
   justify-content: center;
   position: relative;
@@ -132,4 +132,19 @@
   color: #ff657a;
   font-size: 20px;
   cursor: pointer;
+}
+
+.subject-names {
+  font-size: 14px;
+}
+
+.subject-names-container-baseline {
+  display: flex;
+  align-items: baseline;
+}
+
+.subject-span {
+  color: $label-color;
+  font-size: 11px;
+  margin-left: 10px;
 }

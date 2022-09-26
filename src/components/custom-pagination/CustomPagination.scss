@@ -1,15 +1,39 @@
-.paginationBttns {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    align-content: space-between;
-    justify-content: center;
-    gap: 50px;
+.PaginationBttns {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  font-size: 12px;
+  font-weight: 600;
+
+  li {
+    display: none;
+  }
+
+  .previous {
+    display: block;
+    cursor: pointer;
+  }
+
+  .next {
+    display: block;
+    cursor: pointer;
+  }
+
+  .disabled {
+    color: #666666;
+    cursor: default
+  }
 }
 
-.selected {
-    display: none;
+.paginator-container {
+    display: flex;
+    gap: 8px;
+    align-items: center
 }

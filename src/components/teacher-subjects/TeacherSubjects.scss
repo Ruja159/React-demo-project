@@ -1,0 +1,11 @@
+.teacher-subject-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .teacher-subject-flex-items {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+}

@@ -1,0 +1,28 @@
+.checkbox-subject {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    border: 1px solid $label-color;
+    padding: 4px;
+    border-radius: 4px;
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+
+.subject-container {
+  border: 1px solid red;
+  height: 250px;
+  width: 200px;
+  position: absolute;
+  right: 0;
+  overflow-y: auto;
+  padding: 12px;
+  background-color: wihte;
+
+  .subject-container-search {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 2px;
+  }
+}

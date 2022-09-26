@@ -1,10 +1,13 @@
 import React from 'react'
 
-const CustomInput = ({name}:any) =>{
+const CustomInput = ({name, placeholder}:any) =>{
     return (
         <div className='custom-input-container'>
             <label>{name}</label>
-            <input type="text" />
+            <input
+             type="text"
+             placeholder = {placeholder}
+              />
         </div>
     )
 }

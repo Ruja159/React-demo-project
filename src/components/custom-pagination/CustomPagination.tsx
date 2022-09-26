@@ -1,21 +1,20 @@
 import { useState } from "react";
 import CustomCard from "../../components/custom-card/CustomCard";
 import ReactPaginate from "react-paginate";
+import { BsArrowLeft } from "react-icons/bs";
+import { BsArrowRight } from "react-icons/bs";
 
 const CustomPagination = ({ list }: any) => {
-  const [items, setItems] = useState(list);
-
   const [pageNumber, setPageNumber] = useState(0);
-  const itemsPerPage = 10;
+  const itemsPerPage = 7;
   const pageVisited = itemsPerPage * pageNumber;
-  const displayItems = items
+  const displayItems = list
     .slice(pageVisited, pageVisited + itemsPerPage)
-    .map((item: any) => {
-      return <CustomCard key={item.id} teacher={item} />;
+    .map((item: any, index: number) => {
+      return <CustomCard key={item.id} teacher={item} index={index + 1} />;
     });
 
   const changePage = ({ selected }: any) => {
-    console.log(selected, "SELEKTOVANI")
     setPageNumber(selected);
   };
 
@@ -23,9 +22,19 @@ const CustomPagination = ({ list }: any) => {
     <div>
       {displayItems}
       <ReactPaginate
-        previousLabel={"Prethodna"}
-        nextLabel={"Sledeca"}
-        pageCount={2}
+        previousLabel={
+          <div className="paginator-container">
+            <BsArrowLeft />
+            <span>Prethodna</span>
+          </div>
+        }
+        nextLabel={
+          <div className="paginator-container">
+            <span>Sledeca</span>
+            <BsArrowRight />
+          </div>
+        }
+        pageCount={Math.ceil(list.length / itemsPerPage)}
         onPageChange={changePage}
         containerClassName={"PaginationBttns"}
         previousLinkClassName={"previousBtn"}
