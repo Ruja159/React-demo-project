@@ -20,6 +20,11 @@ class HttpClient {
     return service.get(tempURL, config);
   }
 
+  async getById(tempURL: string, id: number) {
+    const { service } = this;
+    return service.get(tempURL + `/${id}`);
+  }
+
   async delete(tempURL: string, id: number) {
     const { service } = this;
     return service.delete(tempURL + `/${id}`);
@@ -35,9 +40,9 @@ class HttpClient {
     return service.post(tempURL, data, config);
   }
 
-  async put(tempURL: string, data: object, config: object) {
+  async put(tempURL: string, id: number, data: object) {
     const { service } = this;
-    return service.put(tempURL, data, config);
+    return service.put(tempURL + `/${id}`, data);
   }
 
   async patch(tempURL: string, data: object, config: object) {

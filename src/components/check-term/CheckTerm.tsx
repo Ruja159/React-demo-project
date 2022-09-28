@@ -1,5 +1,5 @@
 import { Button, MenuItem, Select } from "@mui/material";
-import { useState, useContext, useEffect, useRef } from "react";
+import { useState, useContext } from "react";
 import { BiSave } from "react-icons/bi";
 import { AiOutlineClose, AiOutlinePlus } from "react-icons/ai";
 import { Context } from "../../pages/teacher-detail/TeacherDetails";
@@ -24,21 +24,21 @@ function CheckTerm({ termName, unavailable }: any) {
     "Nedelja",
   ];
 
-  const menuRef = useRef<any>();
+  // const menuRef = useRef<any>();
 
-  useEffect(() => {
-    const handler = (event: any) => {
-      if (!menuRef?.current?.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handler = (event: any) => {
+  //     if (!menuRef?.current?.contains(event.target)) {
+  //       setIsOpen(false);
+  //     }
+  //   };
 
-    document.addEventListener("mousedown", handler);
+  //   document.addEventListener("mousedown", handler);
 
-    return () => {
-      document.removeEventListener("mousedown", handler);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handler);
+  //   };
+  // }, []);
 
   const { events, setEvents } = useContext(Context);
 
@@ -100,7 +100,7 @@ function CheckTerm({ termName, unavailable }: any) {
       <div
         className="term-container"
         style={{ display: !isOpen ? "none" : "" }}
-        ref={menuRef}
+        // ref={menuRef}
       >
         <div className="term-container-item">
           <label className="term-input-label">Od: </label>

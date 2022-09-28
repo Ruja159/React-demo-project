@@ -1,31 +1,15 @@
-import React, { useState, useContext } from "react";
+import { useContext } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { Context } from "../../pages/teacher-detail/TeacherDetails";
-import CustomButton from "../custom-button/CustomButton";
 import CustomDropdown, { Predmeti } from "../custom-dropdown/CustomDropdown";
 
 function TeacherSubjects() {
-  const [open, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("");
-
   const { predmeti, setPredmeti } = useContext(Context);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (value: string) => {
-    setOpen(false);
-    setSelectedValue(value);
-  };
-
-  const handleOpenDialog = () => {};
 
   const handleDelete = (index: number) => {
     if (index === -1) {
       setPredmeti([]);
     } else {
-      console.log(index);
       let arr = [...predmeti];
       arr.splice(index, 1);
       setPredmeti(arr.length ? arr : []);

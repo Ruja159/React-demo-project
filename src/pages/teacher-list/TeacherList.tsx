@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import CustomCard from "../../components/custom-card/CustomCard";
 import BaseService from "../../services/common/BaseService";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
@@ -92,7 +91,12 @@ const TeacherList: React.FC = () => {
       {/* {teachers.map((teacher: any, index) => {
         return <CustomCard key={index} teacher={teacher} />;
       })} */}
-      <CustomPagination list={filteredTeachers} />
+      <CustomPagination
+        list={filteredTeachers}
+        fetchTeachers={() => {
+          getAllTeachers();
+        }}
+      />
     </div>
   );
 };

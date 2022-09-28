@@ -1,11 +1,9 @@
 import { Button } from "@mui/material";
-import React, { useState, useContext, useRef, useEffect } from "react";
-import SendIcon from "@mui/icons-material/Send";
+import { useState, useContext, useRef, useEffect } from "react";
 import { Context } from "../../pages/teacher-detail/TeacherDetails";
 
 import { BiSave } from "react-icons/bi";
-import { AiOutlineClose, AiOutlinePlus } from "react-icons/ai";
-import CustomDropdown from "../custom-dropdown/CustomDropdown";
+import { AiOutlineClose } from "react-icons/ai";
 
 const CustomPalette = () => {
   const boje = [
@@ -44,9 +42,9 @@ const CustomPalette = () => {
   ];
 
   const [isOpen, setIsOpen] = useState(false);
-  const [activeColor, setActiveColor] = useState(boje[0]);
 
   const { boja, setBoja } = useContext(Context);
+  const [activeColor, setActiveColor] = useState(boja);
 
   const handleChange = (value: string) => {
     setActiveColor(value);

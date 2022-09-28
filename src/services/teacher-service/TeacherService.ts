@@ -8,5 +8,19 @@ const addTeacher = async (data = {}, query = {}): Promise<any> => {
   return response.data;
 };
 
-export { addTeacher };
+const getTeacherById = async (id: number): Promise<any> => {
+  const baseService = new BaseService();
+  const url = "/nastavnici";
+  const response: AxiosResponse<any> = await baseService.getById(url, id);
+  return response;
+};
+
+const editTeacher = async (data: {}, id: number): Promise<any> => {
+  const baseService = new BaseService();
+  const url = "/nastavnici";
+  const response: AxiosResponse<any> = await baseService.put(url, id, data);
+  return response.data;
+};
+
+export { addTeacher, getTeacherById, editTeacher };
 export default {};

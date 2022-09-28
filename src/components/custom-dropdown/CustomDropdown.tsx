@@ -80,7 +80,7 @@ function CustomDropdown({ setPredmeti }: any) {
         ref={menuRef}
         style={{ display: !isOpen ? "none" : "" }}
       >
-        <div>
+        <div style={{ overflowY: "auto", height: "86%" }}>
           <div className="subject-container-search">
             <CustomInput placeholder="Search" />
             <div className="checkbox-subject">

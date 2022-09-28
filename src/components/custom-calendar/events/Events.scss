@@ -1,0 +1,14 @@
+.event-container {
+  display: flex;
+  font-size: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.container-all {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}

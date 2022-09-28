@@ -4,6 +4,7 @@ import React, {
   Dispatch,
   SetStateAction,
   useState,
+  useEffect,
 } from "react";
 import CustomCalendar from "../../components/custom-calendar/CustomCalendar";
 import { Predmeti } from "../../components/custom-dropdown/CustomDropdown";
@@ -13,10 +14,14 @@ import TeacherSubjects from "../../components/teacher-subjects/TeacherSubjects";
 import { BiSave } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { EventInterface } from "../../components/check-term/CheckTerm";
-import HttpClient from "../../services/common/BaseService";
-import { addTeacher } from "../../services/teacher-service/TeacherService";
+import {
+  addTeacher,
+  editTeacher,
+  getTeacherById,
+} from "../../services/teacher-service/TeacherService";
 import { TEACHER_LIST_PATH } from "../../routes/path-constants";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import BaseService from "../../services/common/BaseService";
 
 interface TeacherContextInterface {
   ime: string;
@@ -39,8 +44,6 @@ export const Context = createContext<TeacherContextInterface>(
   {} as TeacherContextInterface
 );
 
-const module = "/nastavnici";
-
 const TeacherDetail: React.FC = () => {
   const [ime, setIme] = useState("");
   const [prezime, setPrezime] = useState("");
@@ -49,8 +52,25 @@ const TeacherDetail: React.FC = () => {
   const [boja, setBoja] = useState("#d272ff");
   const [predmeti, setPredmeti] = useState<Predmeti[]>([]);
   const [events, setEvents] = useState<EventInterface[]>([]);
+  const [isEdit, setIsEdit] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state) {
+      getTeacherById(location.state.id).then((result) => {
+        setIme(result.data.ime);
+        setPrezime(result.data.prezime);
+        setSrednjeIme(result.data.srednjeIme);
+        setSkracenica(result.data.skracenica);
+        setBoja(result.data.boja);
+        setPredmeti(result.data.predmeti);
+        setEvents(result.data.events);
+        setIsEdit(true);
+      });
+    }
+  }, [location.state]);
 
   const handleSave = () => {
     const newTeacher = {
@@ -62,9 +82,16 @@ const TeacherDetail: React.FC = () => {
       predmeti,
       events,
     };
-    addTeacher(newTeacher).then(() => {
-      navigate(TEACHER_LIST_PATH);
-    });
+
+    if (isEdit) {
+      editTeacher(newTeacher, location.state.id).then(() => {
+        navigate(TEACHER_LIST_PATH);
+      });
+    } else {
+      addTeacher(newTeacher).then(() => {
+        navigate(TEACHER_LIST_PATH);
+      });
+    }
   };
 
   return (

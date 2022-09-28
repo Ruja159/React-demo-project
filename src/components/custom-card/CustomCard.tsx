@@ -1,19 +1,33 @@
-import React from "react";
 import { HiPencilAlt } from "react-icons/hi";
 import { HiTrash } from "react-icons/hi";
 import { deleteTeacher } from "../../services/card-service/CardService";
+import { useNavigate } from "react-router-dom";
 
-const CustomCard = ({ teacher, index }: any) => {
+const CustomCard = ({ teacher, index, fetchTeachers }: any) => {
   const handleDeleteTeacher = (id: number) => {
-    deleteTeacher(id).then((result) => {
-      console.log(result, "OBRISANI REKORD");
+    deleteTeacher(id).then(() => {
+      fetchTeachers();
     });
   };
 
+  const navigate = useNavigate();
+
   const handleEditTeacher = (id: number) => {
-    console.log(id, "RADI");
+    navigate("/teacher-detail", { state: { id: id } });
   };
-  console.log(teacher.predmeti, "UCIELJ");
+  let brojNedostupnihTermina: number = 0;
+  let brojDostupnihTermina: number = 0;
+
+  if (teacher.events) {
+    teacher.events.forEach((e: any) => {
+      if (e.unavailable) {
+        brojNedostupnihTermina += 1;
+      } else {
+        brojDostupnihTermina += 1;
+      }
+    });
+  }
+
   return (
     <div className="custom-card-container">
       <div className="custom-card-numbers">{index}.</div>
@@ -48,33 +62,47 @@ const CustomCard = ({ teacher, index }: any) => {
           </div>
         </div>
         <div className="subject-names-container-baseline">
-              {teacher.predmeti ? teacher.predmeti.map((i: any, index: number) => {
-                   if(index < 4){
-                    return (
-                      <h5 className="subject-names">{`${i.ime},`}</h5>
-                    )
-                   }
-                   if(index == 4){
-                    return (<h5 className="subject-names">{i.ime}</h5>)
-                   }
-                   if(index > 4 ){
-                    return <span className="subject-span">+{teacher.predmeti.length - 5}</span>
-                   }
-                
-              })  : <h5>-</h5>}
+          {teacher.predmeti ? (
+            teacher.predmeti.map((i: any, index: number) => {
+              if (index < 4) {
+                return (
+                  <h5
+                    className="subject-names"
+                    key={index}
+                  >{`${i.skracenica},`}</h5>
+                );
+              }
+              if (index == 4) {
+                return (
+                  <h5 className="subject-names" key={index}>
+                    {i.skracenica}
+                  </h5>
+                );
+              }
+              if (index > 4) {
+                return (
+                  <span className="subject-span">
+                    +{teacher.predmeti.length - 5}
+                  </span>
+                );
+              }
+            })
+          ) : (
+            <h5>-</h5>
+          )}
         </div>
       </div>
       <div className="custom-card-terms">
         <div className="custom-card-terms-container">
           <label>Nedostupnih termina: </label>
           <div className="custom-card-terms-negative-number">
-            {teacher.nedostupan_termin.length}
+            {brojNedostupnihTermina}
           </div>
         </div>
         <div className="custom-card-terms-container">
           <label>Dostupnih termina: </label>
           <div className="custom-card-terms-positive-number">
-            {teacher.dostupan_termin.length}
+            {brojDostupnihTermina}
           </div>
         </div>
       </div>

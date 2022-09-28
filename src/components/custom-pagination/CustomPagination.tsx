@@ -4,14 +4,21 @@ import ReactPaginate from "react-paginate";
 import { BsArrowLeft } from "react-icons/bs";
 import { BsArrowRight } from "react-icons/bs";
 
-const CustomPagination = ({ list }: any) => {
+const CustomPagination = ({ list, fetchTeachers }: any) => {
   const [pageNumber, setPageNumber] = useState(0);
   const itemsPerPage = 7;
   const pageVisited = itemsPerPage * pageNumber;
   const displayItems = list
     .slice(pageVisited, pageVisited + itemsPerPage)
     .map((item: any, index: number) => {
-      return <CustomCard key={item.id} teacher={item} index={index + 1} />;
+      return (
+        <CustomCard
+          key={item.id}
+          teacher={item}
+          index={index + 1}
+          fetchTeachers={fetchTeachers}
+        />
+      );
     });
 
   const changePage = ({ selected }: any) => {

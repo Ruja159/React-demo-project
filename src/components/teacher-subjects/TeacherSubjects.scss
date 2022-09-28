@@ -20,11 +20,12 @@
     border-right: 1px solid $label-color;
     height: 34px;
     gap: 12px;
-
+    flex-wrap: wrap;
+    height: 100%;
     .subject-names-label {
-        font-size: 14px;
-        margin: 0;
-        padding: 5px 0;
+      font-size: 13px;
+      margin: 0;
+      padding: 5px 0;
     }
   }
   .only-subject {
@@ -44,21 +45,21 @@
     }
 
     .delete-button {
-        background-color: white;
-        border: none;
+      background-color: white;
+      border: none;
     }
   }
 }
 
 .delete-all-button {
-    border: none;
-    background-color: #ff98a5;
-    border-radius: 3px;
-    color: white;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    width: 28px;
-    height: 26px;
-    cursor: pointer;
+  border: none;
+  background-color: #ff98a5;
+  border-radius: 3px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 28px;
+  height: 26px;
+  cursor: pointer;
 }

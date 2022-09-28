@@ -1,10 +1,10 @@
 {
   "nastavnici": [
     {
-      "ime": "Milan",
-      "prezime": "Novic",
-      "srednjeIme": "",
-      "skracenica": "MM",
+      "ime": "Aleksandar",
+      "prezime": "Rujevic",
+      "srednjeIme": "Ruja",
+      "skracenica": "ARRA",
       "boja": "#21cf5c",
       "predmeti": [
         {
@@ -23,7 +23,7 @@
           "id": 3,
           "predmet": "engleski jezik",
           "skracenica": "ENG",
-          "isChecked": false
+          "isChecked": true
         },
         {
           "id": 4,
@@ -42,13 +42,63 @@
         {
           "startDay": 0,
           "endDay": 0,
-          "startTime": "07:00",
-          "endTime": "10:15",
-          "text": "",
+          "startTime": "13:15",
+          "endTime": "15:15",
+          "text": "Nedostupno",
           "unavailable": false
         }
       ],
-      "id": 1
+      "id": 3
+    },
+    {
+      "ime": "Aleksandar",
+      "prezime": "Rujevic",
+      "srednjeIme": "Ruja",
+      "skracenica": "ARRR",
+      "boja": "#21cf5c",
+      "predmeti": [
+        {
+          "id": 1,
+          "predmet": "matematika",
+          "skracenica": "MAT",
+          "isChecked": true
+        },
+        {
+          "id": 2,
+          "predmet": "srpski jezik",
+          "skracenica": "SRP",
+          "isChecked": true
+        },
+        {
+          "id": 3,
+          "predmet": "engleski jezik",
+          "skracenica": "ENG",
+          "isChecked": true
+        },
+        {
+          "id": 4,
+          "predmet": "biologija",
+          "skracenica": "BIO",
+          "isChecked": false
+        },
+        {
+          "id": 5,
+          "predmet": "matematika",
+          "skracenica": "MAT",
+          "isChecked": false
+        }
+      ],
+      "events": [
+        {
+          "startDay": 0,
+          "endDay": 0,
+          "startTime": "13:15",
+          "endTime": "15:15",
+          "text": "Nedostupno",
+          "unavailable": false
+        }
+      ],
+      "id": 4
     }
   ],
   "predmeti": [
@@ -76,6 +126,31 @@
       "id": 5,
       "predmet": "matematika",
       "skracenica": "MAT"
+    },
+    {
+      "id": 6,
+      "predmet": "fizika",
+      "skracenica": "FIZ"
+    },
+    {
+      "id": 7,
+      "predmet": "hemija",
+      "skracenica": "HEM"
+    },
+    {
+      "id": 8,
+      "predmet": "njemacki jezik",
+      "skracenica": "NJEM"
+    },
+    {
+      "id": 9,
+      "predmet": "ruski jezik",
+      "skracenica": "RUS"
+    },
+    {
+      "id": 10,
+      "predmet": "muzicka kultura",
+      "skracenica": "MUZ"
     }
   ]
 }
