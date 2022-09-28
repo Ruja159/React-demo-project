@@ -96,13 +96,13 @@ const CustomCard = ({ teacher, index, fetchTeachers }: any) => {
         <div className="custom-card-terms-container">
           <label>Nedostupnih termina: </label>
           <div className="custom-card-terms-negative-number">
-            {brojNedostupnihTermina}
+            <div className="card-numbers">{brojNedostupnihTermina}</div>
           </div>
         </div>
         <div className="custom-card-terms-container">
           <label>Dostupnih termina: </label>
           <div className="custom-card-terms-positive-number">
-            {brojDostupnihTermina}
+            <div className="card-numbers">{brojDostupnihTermina}</div>
           </div>
         </div>
       </div>
