@@ -59,10 +59,6 @@ const TeacherList: React.FC = () => {
     setFilteredTeachers(newTeachers);
   }, [ime, prezime, teachers]);
 
-  const handleChange = () => {
-    console.log("RADI");
-  };
-
   return (
     <div className="container">
       <div className="header">

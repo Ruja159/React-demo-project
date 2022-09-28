@@ -1,12 +1,14 @@
 .checkbox-subject {
   display: flex;
   align-items: center;
-  gap: 13px;
   border: 1px solid $label-color;
   padding: 4px;
   border-radius: 4px;
   margin-top: 8px;
   text-transform: uppercase;
+  height: 32px;
+  font-size: 12px;
+  justify-content: flex-start;
 }
 
 .subject-container {
@@ -21,16 +23,33 @@
   background-color: white;
   border-radius: 4px;
   box-shadow: 0px 0px 7px -3px black;
+  z-index: 1;
 
   .subject-container-search {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    padding-bottom: 2px;
+    gap: 6px;
+    padding-bottom: 4px;
+  }
+  :first-child {
+    margin: 0;
+  }
+
+  .checkbox-subject-group {
+    border-top: 1px solid $label-color;
+    border-bottom: 1px solid $label-color;
+    padding: 8px 0;
   }
 }
 
 .button {
   font-size: 10px !important;
   font-weight: 600 !important;
+  text-transform: none !important;
+}
+
+.subject-button-group {
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
 }

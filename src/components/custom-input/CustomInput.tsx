@@ -1,12 +1,9 @@
 
-
 const CustomInput = ({name, placeholder, value, setValue}:any) =>{
-
-   
 
     return (
         <div className='custom-input-container'>
-            <label>{name}</label>
+            <p style={{paddingBottom: '4px'}}>{name}</p>
             <input
              type="text"
              placeholder = {placeholder}

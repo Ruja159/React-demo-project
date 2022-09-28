@@ -1,6 +1,6 @@
 import React from "react";
 
-const Grid = ({ start_time, end_time, weekend = true }: any) => {
+const Grid = ({ start_time, end_time, weekend = false }: any) => {
   let rows = [];
 
   let days = weekend
@@ -21,28 +21,28 @@ const Grid = ({ start_time, end_time, weekend = true }: any) => {
 
   return (
     <div className="grid-container">
-      <div>
-        {rows.map((item) => {
-          return <div className="grid-first-row">{item}:00</div>;
-        })}
-      </div>
-      <div style={{ width: "100%" }}>
-        {rows.map((row) => {
-          return (
-            <div
-              style={{
-                display: "flex",
-                width: "100%",
-                height: "50px",
-               
-              }}
-            >
-              {days.map((day) => {
-                return <div style={{width: '20%', border: '1px solid black'}}></div>;
-              })}
-            </div>
-          );
-        })}
+      <div style={{display: 'flex'}}>
+        <div>
+          {rows.map((item, index) => {
+            return (
+              <div key={index} className="grid-first-row" style={{height:index===0?'fit-content':''}}>
+                <label>{item}:00</label>
+              </div>
+            );
+          })}
+        </div>
+        <div className="grid-second-container">
+          {rows.map((row, index) => {
+            return (
+              <div className={index!==0?'grid-rows':'grid-rows grid-first-row'}>
+                {days.map((day) => {
+                    return <div className={index!==0?"grid-other-columns":"grid-other-columns grid-first-columns"}><p>{index===0 && day}</p></div>;
+                })}
+                
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

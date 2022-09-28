@@ -1,0 +1,29 @@
+.grid-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+   
+
+    .icon-text-container{
+        display: flex;
+        gap: 8px;
+
+        svg {
+            font-size: 18px;
+            color: $text-color;
+        }
+
+        .paragraph{
+            color: $text-color;
+        }
+    }
+    .buttons-group {
+        display: flex;
+        gap: 12px;
+        
+        .grid-header-button{
+            font-size: 9px;
+        }
+    }
+}

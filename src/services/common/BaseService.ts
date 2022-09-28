@@ -1,6 +1,6 @@
-import axios, { AxiosStatic } from 'axios';
+import axios, { AxiosStatic } from "axios";
 
-import { get } from '../../configuration';
+import { get } from "../../configuration";
 
 class HttpClient {
   private service: AxiosStatic;
@@ -13,7 +13,6 @@ class HttpClient {
     service.defaults.withCredentials = true;
 
     this.service = axios;
-  
   }
 
   async get(tempURL: string, config?: object) {
@@ -31,7 +30,7 @@ class HttpClient {
     return service.head(tempURL, config);
   }
 
-  async post(tempURL: string, data: object, config: object) {
+  async post(tempURL: string, data: object, config?: object) {
     const { service } = this;
     return service.post(tempURL, data, config);
   }

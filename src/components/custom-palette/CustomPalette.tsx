@@ -1,7 +1,11 @@
 import { Button } from "@mui/material";
-import React, {useState, useContext} from "react";
-import SendIcon from '@mui/icons-material/Send';
+import React, { useState, useContext, useRef, useEffect } from "react";
+import SendIcon from "@mui/icons-material/Send";
 import { Context } from "../../pages/teacher-detail/TeacherDetails";
+
+import { BiSave } from "react-icons/bi";
+import { AiOutlineClose, AiOutlinePlus } from "react-icons/ai";
+import CustomDropdown from "../custom-dropdown/CustomDropdown";
 
 const CustomPalette = () => {
   const boje = [
@@ -40,56 +44,108 @@ const CustomPalette = () => {
   ];
 
   const [isOpen, setIsOpen] = useState(false);
-  const [activeColor, setActiveColor] = useState(boje[0])
+  const [activeColor, setActiveColor] = useState(boje[0]);
 
-  const {setBoja} = useContext(Context)
+  const { boja, setBoja } = useContext(Context);
 
   const handleChange = (value: string) => {
-    setActiveColor(value)
-  }
+    setActiveColor(value);
+  };
 
   const handleClick = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const handleExit = () => {
-setIsOpen(false)
-  }
+    setActiveColor(boja);
+    setIsOpen(false);
+  };
 
-  const handleSave = (color:string) =>{
-    setBoja(color)
-setIsOpen(false)
+  const handleSave = (color: string) => {
+    setBoja(color);
+    setIsOpen(false);
+  };
 
-  }
+  const menuRef = useRef<any>();
 
+  useEffect(() => {
+    const handler = (event: any) => {
+      if (!menuRef?.current?.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
 
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  }, []);
 
   return (
-<div className="custom-input-container" style={{ position:'relative'}}>
-      <label>Boja: </label>
+    <div className="custom-input-container" style={{ position: "relative" }}>
+      <p style={{ paddingBottom: "4px" }}>Boja: </p>
       <div className="custom-palette-container">
-        <div onClick={()=>{handleClick()}} style={{backgroundColor: activeColor}} className="color-button">
-        </div>
-        <input style={{ width: '165px'}} value={activeColor} onChange={(e) => {handleChange(e.target.value)}}/>
+        <div
+          onClick={() => {
+            handleClick();
+          }}
+          style={{ backgroundColor: activeColor }}
+          className="color-button"
+        ></div>
+        <input
+          style={{ width: "165px" }}
+          value={activeColor}
+          onChange={(e) => {
+            handleChange(e.target.value);
+          }}
+        />
       </div>
-        {isOpen && <div className="color-palette-dropdown">
-                <div className="container-exit">
-                    <span onClick={()=> handleExit()}>X</span>
-                </div>
-                <div className = "grid-colors">
-                    {boje.map((boja, index) => {
-                        return (
-                            <div key={index} style={{backgroundColor: boja}} className='color-box' onClick={(e)=>{
-                                setActiveColor(boja)
-                            }}></div>
-                        )
-                    })}
-                </div>
-                <div className="button-group">
-                    <Button variant="outlined" size="small" onClick={()=>{handleExit()}}>Odustani</Button>
-                    <Button variant="contained" size="small" endIcon={<SendIcon />} onClick={()=>{handleSave(activeColor)}}>Sacuvaj</Button>
-                </div>
-            </div>}
+      {isOpen && (
+        <div className="color-palette-dropdown" ref={menuRef}>
+          <div className="container-exit">
+            <span onClick={() => handleExit()}>X</span>
+          </div>
+          <div className="grid-colors">
+            {boje.map((boja, index) => {
+              return (
+                <div
+                  key={index}
+                  style={{ backgroundColor: boja }}
+                  className="color-box"
+                  onClick={(e) => {
+                    setActiveColor(boja);
+                  }}
+                ></div>
+              );
+            })}
+          </div>
+          <div className="term-button-group">
+            <Button
+              variant="outlined"
+              startIcon={<AiOutlineClose />}
+              size="small"
+              className="exit-button"
+              onClick={() => {
+                handleExit();
+              }}
+            >
+              Odustani
+            </Button>
+            <Button
+              variant="outlined"
+              startIcon={<BiSave />}
+              size="small"
+              className="save-button"
+              onClick={() => {
+                handleSave(activeColor);
+              }}
+            >
+              Sacuvaj
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
