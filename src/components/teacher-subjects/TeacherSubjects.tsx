@@ -11,8 +11,11 @@ function TeacherSubjects() {
       setPredmeti([]);
     } else {
       let arr = [...predmeti];
-      arr.splice(index, 1);
-      setPredmeti(arr.length ? arr : []);
+      arr[index].isChecked = false;
+      let value = arr.some((i) => {
+        return i.isChecked == true;
+      });
+      setPredmeti(value ? arr : []);
     }
   };
 
@@ -63,7 +66,7 @@ function TeacherSubjects() {
               ""
             )}
           </div>
-          <CustomDropdown setPredmeti={setPredmeti} />
+          <CustomDropdown />
         </div>
       </div>
     </div>

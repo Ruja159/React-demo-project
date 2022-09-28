@@ -1,10 +1,11 @@
 import { Button, Checkbox } from "@mui/material";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { getPredmeti } from "../../services/subject-service/SubjectService";
 import CustomInput from "../custom-input/CustomInput";
 
 import { BiSave } from "react-icons/bi";
 import { AiOutlineClose, AiOutlinePlus } from "react-icons/ai";
+import { Context } from "../../pages/teacher-detail/TeacherDetails";
 
 export interface Predmeti {
   id: number;
@@ -13,9 +14,11 @@ export interface Predmeti {
   isChecked: boolean;
 }
 
-function CustomDropdown({ setPredmeti }: any) {
+function CustomDropdown() {
   const [isOpen, setIsOpen] = useState(false);
-  const [listaPredmeta, setListaPredmeta] = useState<Predmeti[]>([]);
+  const { predmeti, setPredmeti } = useContext(Context);
+  let [allChecked, setAllChecked] = useState(false);
+  const [listaPredmeta, setListaPredmeta] = useState<Predmeti[]>(predmeti);
 
   const menuRef = useRef<any>();
 
@@ -34,13 +37,21 @@ function CustomDropdown({ setPredmeti }: any) {
   }, []);
 
   useEffect(() => {
-    getPredmeti().then((result: Predmeti[]) => {
-      result.forEach((i) => {
-        i.isChecked = false;
+    if (predmeti.length == 0) {
+      getPredmeti().then((result: Predmeti[]) => {
+        result.forEach((i) => {
+          i.isChecked = false;
+        });
+        setListaPredmeta(result);
       });
-      setListaPredmeta(result);
-    });
-  }, []);
+    } else {
+      allChecked = predmeti.some((predmet) => {
+        return predmet.isChecked == false;
+      });
+      allChecked ? setAllChecked(false) : setAllChecked(true);
+      setListaPredmeta(predmeti);
+    }
+  }, [predmeti]);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -56,8 +67,10 @@ function CustomDropdown({ setPredmeti }: any) {
       newList.forEach((i) => {
         i.isChecked = event.target.checked;
       });
+      setAllChecked(!allChecked);
     } else {
       newList[index].isChecked = event.target.checked;
+      setAllChecked(false);
     }
     setListaPredmeta(newList);
   };
@@ -84,7 +97,11 @@ function CustomDropdown({ setPredmeti }: any) {
           <div className="subject-container-search">
             <CustomInput placeholder="Search" />
             <div className="checkbox-subject">
-              <Checkbox onChange={(e) => handleChange(-1, e)} name="all" />
+              <Checkbox
+                onChange={(e) => handleChange(-1, e)}
+                name="all"
+                checked={allChecked}
+              />
               <span>SVI PREDMETI</span>
             </div>
           </div>

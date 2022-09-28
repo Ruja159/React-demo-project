@@ -64,7 +64,7 @@ const CustomCard = ({ teacher, index, fetchTeachers }: any) => {
         <div className="subject-names-container-baseline">
           {teacher.predmeti ? (
             teacher.predmeti.map((i: any, index: number) => {
-              if (index < 4) {
+              if (index < 4 && i.isChecked) {
                 return (
                   <h5
                     className="subject-names"
@@ -72,14 +72,14 @@ const CustomCard = ({ teacher, index, fetchTeachers }: any) => {
                   >{`${i.skracenica},`}</h5>
                 );
               }
-              if (index == 4) {
+              if (index == 4 && i.isChecked) {
                 return (
                   <h5 className="subject-names" key={index}>
                     {i.skracenica}
                   </h5>
                 );
               }
-              if (index > 4) {
+              if (index == 5 && i.isChecked) {
                 return (
                   <span className="subject-span">
                     +{teacher.predmeti.length - 5}

@@ -59,13 +59,13 @@ const TeacherDetail: React.FC = () => {
 
   useEffect(() => {
     if (location.state) {
-      getTeacherById(location.state.id).then((result) => {
+      getTeacherById(location.state.id).then(async (result) => {
         setIme(result.data.ime);
         setPrezime(result.data.prezime);
         setSrednjeIme(result.data.srednjeIme);
         setSkracenica(result.data.skracenica);
         setBoja(result.data.boja);
-        setPredmeti(result.data.predmeti);
+        await setPredmeti(result.data.predmeti);
         setEvents(result.data.events);
         setIsEdit(true);
       });
