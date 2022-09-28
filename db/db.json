@@ -4,20 +4,20 @@
       "ime": "Aleksandar",
       "prezime": "Rujevic",
       "srednjeIme": "Ruja",
-      "skracenica": "ARRA",
-      "boja": "#21cf5c",
+      "skracenica": "AR",
+      "boja": "#d4190d",
       "predmeti": [
         {
           "id": 1,
           "predmet": "matematika",
           "skracenica": "MAT",
-          "isChecked": false
+          "isChecked": true
         },
         {
           "id": 2,
           "predmet": "srpski jezik",
           "skracenica": "SRP",
-          "isChecked": false
+          "isChecked": true
         },
         {
           "id": 3,
@@ -29,25 +29,25 @@
           "id": 4,
           "predmet": "biologija",
           "skracenica": "BIO",
-          "isChecked": false
+          "isChecked": true
         },
         {
           "id": 5,
           "predmet": "matematika",
           "skracenica": "MAT",
-          "isChecked": false
+          "isChecked": true
         },
         {
           "id": 6,
           "predmet": "fizika",
           "skracenica": "FIZ",
-          "isChecked": false
+          "isChecked": true
         },
         {
           "id": 7,
           "predmet": "hemija",
           "skracenica": "HEM",
-          "isChecked": false
+          "isChecked": true
         },
         {
           "id": 8,
@@ -65,20 +65,36 @@
           "id": 10,
           "predmet": "muzicka kultura",
           "skracenica": "MUZ",
-          "isChecked": false
+          "isChecked": true
         }
       ],
       "events": [
         {
           "startDay": 0,
           "endDay": 0,
-          "startTime": "13:15",
-          "endTime": "15:15",
+          "startTime": "10:15",
+          "endTime": "11:00",
           "text": "Nedostupno",
+          "unavailable": true
+        },
+        {
+          "startDay": 1,
+          "endDay": 1,
+          "startTime": "12:00",
+          "endTime": "14:45",
+          "text": "Dostupno",
+          "unavailable": false
+        },
+        {
+          "startDay": 3,
+          "endDay": 3,
+          "startTime": "12:00",
+          "endTime": "14:45",
+          "text": "Dostupno",
           "unavailable": false
         }
       ],
-      "id": 3
+      "id": 1
     }
   ],
   "predmeti": [
